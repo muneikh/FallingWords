@@ -29,9 +29,8 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
 
     private TextView textViewWrong;
     private TextView textViewRight;
-    private TextView textViewSkipped;
+    private TextView textViewTotal;
 
-    private boolean isSkipped;
     private boolean alreadyProcessed;
 
     private TranslationManager translationManager = new TranslationManager();
@@ -45,7 +44,7 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
         textViewWord = (TextView) findViewById(R.id.text_view_word);
         textViewRight = (TextView) findViewById(R.id.text_view_right);
         textViewWrong = (TextView) findViewById(R.id.text_view_wrong);
-        textViewSkipped = (TextView) findViewById(R.id.text_view_skipped);
+        textViewTotal = (TextView) findViewById(R.id.text_view_total);
         fallingTextView = (FallingTextView) findViewById(R.id.text_view_falling_word);
 
         fallingTextView.setAnimationListener(this);
@@ -63,8 +62,7 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
     public void rightButtonPressed(View view) {
         if (!alreadyProcessed) {
             alreadyProcessed = true;
-            isSkipped = false;
-            translationManager.checkUserSelection(isSkipped, true);
+            translationManager.checkUserSelection(true);
             refreshStatistics();
         }
     }
@@ -72,8 +70,7 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
     public void wrongButtonPressed(View view) {
         if (!alreadyProcessed) {
             alreadyProcessed = true;
-            isSkipped = false;
-            translationManager.checkUserSelection(isSkipped, false);
+            translationManager.checkUserSelection(false);
             refreshStatistics();
         }
     }
@@ -86,14 +83,6 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
     @Override
     public void onAnimationEnd(Animation animation) {
         Log.d(TAG, "onAnimationEnd: ");
-
-        if (!alreadyProcessed && isSkipped) {
-            alreadyProcessed = true;
-            translationManager.checkUserSelection(isSkipped);
-            isSkipped = false;
-            refreshStatistics();
-        }
-
         displayNextTranslation(translationManager.getNextTranslation());
     }
 
@@ -112,19 +101,19 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
         if (translation != null) {
             textViewWord.setText(translation.getTextSpa());
             fallingTextView.setText(translation.getTextEng());
+            textViewTotal.setText(translationManager.getCurrentTranslationIndex() + "/" + translationManager.getTotalTranslations());
             fallingTextView.startAnimation();
             alreadyProcessed = false;
-            isSkipped = true;
 
         } else {
 
+            View view = findViewById(android.R.id.content).getRootView();
+            Snackbar snackbar = Snackbar.make(view, R.string.text_game_over, Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.text_retry, v -> restartGame());
+            snackbar.show();
+
             textViewWord.setText("");
             fallingTextView.setText("");
-
-            View view = findViewById(android.R.id.content).getRootView();
-            Snackbar snackbar = Snackbar.make(view, "Game Over", Snackbar.LENGTH_INDEFINITE);
-            snackbar.setAction("Retry", v -> restartGame());
-            snackbar.show();
         }
     }
 
@@ -133,7 +122,6 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
 
         textViewRight.setText("0");
         textViewWrong.setText("0");
-        textViewSkipped.setText("0");
 
         displayNextTranslation(translationManager.getNextTranslation());
     }
@@ -141,6 +129,5 @@ public class WordFallActivity extends AppCompatActivity implements Animation.Ani
     private void refreshStatistics() {
         textViewRight.setText(String.valueOf(translationManager.getRightCount()));
         textViewWrong.setText(String.valueOf(translationManager.getWrongCount()));
-        textViewSkipped.setText(String.valueOf(translationManager.getSkippedCount()));
     }
 }

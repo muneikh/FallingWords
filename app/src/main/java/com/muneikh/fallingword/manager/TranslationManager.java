@@ -90,25 +90,17 @@ public class TranslationManager {
         return translation;
     }
 
-    public void checkUserSelection(boolean isSkipped) {
-        checkUserSelection(isSkipped, false);
-    }
-
-    public void checkUserSelection(boolean isSkipped, boolean userSelection) {
+    public void checkUserSelection(boolean userSelection) {
 
         // create deep copy to avoid dirty read/write.
         Translation translation = Translation.create(currentTranslation.getTextEng(),
                 currentTranslation.getTextSpa(), currentTranslation.isIncorrectTranslation());
 
-        // no user selection -- skipped case.
-        if (isSkipped) {
-            skippedCount += 1;
+        // no user selection -- skipped case - we are not counting it...
+        if (userSelection == !translation.isIncorrectTranslation()) {
+            rightCount += 1;
         } else {
-            if (userSelection == !translation.isIncorrectTranslation()) {
-                rightCount += 1;
-            } else {
-                wrongCount += 1;
-            }
+            wrongCount += 1;
         }
     }
 
@@ -129,5 +121,13 @@ public class TranslationManager {
         wrongCount = 0;
         skippedCount = 0;
         currentTranslationIndex = 0;
+    }
+
+    public int getCurrentTranslationIndex() {
+        return currentTranslationIndex;
+    }
+
+    public int getTotalTranslations() {
+        return translations.size();
     }
 }

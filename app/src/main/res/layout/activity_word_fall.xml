@@ -15,19 +15,19 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:text="transation"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
         app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_skipped" />
+        android:layout_marginTop="72dp"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
 
     <ImageView
         android:layout_width="384dp"
         android:layout_height="130dp"
         app:srcCompat="@color/colorPrimary"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="140dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/text_view_skipped"
+        android:id="@+id/text_view_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -136,11 +136,11 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="@string/text_word"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
         app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_skipped" />
+        android:layout_marginTop="72dp"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
 
 </android.support.constraint.ConstraintLayout>

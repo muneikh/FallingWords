@@ -2,8 +2,10 @@
     <string name="app_name">Falling Words</string>
     <string name="text_right">Right</string>
     <string name="text_wrong">Wrong</string>
-    <string name="text_skipped">Skipped</string>
+    <string name="text_skipped">Total</string>
     <string name="text_correct">Correct</string>
     <string name="text_incorrect">Incorrect</string>
     <string name="text_word">Word</string>
+    <string name="text_retry">Retry</string>
+    <string name="text_game_over">Game Over</string>
 </resources>
