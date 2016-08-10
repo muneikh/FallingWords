@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Falling Words</string>
+    <string name="text_right">Right</string>
+    <string name="text_wrong">Wrong</string>
+    <string name="text_skipped">Skipped</string>
+    <string name="text_correct">Correct</string>
+    <string name="text_incorrect">Incorrect</string>
+    <string name="text_word">Word</string>
+</resources>

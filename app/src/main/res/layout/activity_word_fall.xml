@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_word_fall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.muneikh.fallingword.ui.WordFallActivity">
+
+    <com.muneikh.fallingword.ui.widget.FallingTextView
+        android:id="@+id/text_view_falling_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="transation"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_skipped" />
+
+    <ImageView
+        android:layout_width="384dp"
+        android:layout_height="130dp"
+        app:srcCompat="@color/colorPrimary"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_right"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_wrong"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_skipped"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
+
+    <TextView
+        android:id="@+id/text_view_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/text_view_wrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/text_view_skipped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toTopOf="@+id/activity_word_fall" />
+
+    <Button
+        android:id="@+id/button_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/text_correct"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_word_fall"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        android:onClick="rightButtonPressed" />
+
+    <Button
+        android:id="@+id/button_incorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/text_incorrect"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_word_fall"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        android:onClick="wrongButtonPressed" />
+
+    <TextView
+        android:id="@+id/text_view_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_word"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_word_fall"
+        app:layout_constraintRight_toRightOf="@+id/activity_word_fall"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_skipped" />
+
+</android.support.constraint.ConstraintLayout>
