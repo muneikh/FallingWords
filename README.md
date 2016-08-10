@@ -12,3 +12,5 @@ Summary
  
  Demo
  -------
+
+![Alt text](/assets/output.gif?raw=true "Demo")
