@@ -12,4 +12,4 @@ Summary
  Demo
  -------
 
-![Alt text](/assets/output?raw=true "Demo")
+![Alt text](/assets/output.gif?raw=true "Demo")
